@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "author": "Vengatesh S",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 28, "left": -22, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 25.2,
+      "left": 313.14,
+      "attrs": { "color": "yellow" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 25.86,
+      "left": 250.46,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": 25.87,
+      "left": 387.13,
+      "attrs": { "color": "limegreen" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 203.42,
+      "left": 333.6,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 148.75,
+      "left": 247.6,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": 115.42,
+      "left": 166.93,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": -104.41,
+      "left": -48.79,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "led2:A", "r3:2", "green", [ "v0" ] ],
+    [ "led1:A", "r2:2", "green", [ "v0" ] ],
+    [ "led3:A", "r1:2", "green", [ "v0" ] ],
+    [ "led2:C", "esp:GND.1", "green", [ "v0" ] ],
+    [ "led1:C", "esp:GND.1", "green", [ "v0" ] ],
+    [ "led3:C", "esp:GND.1", "green", [ "v0" ] ],
+    [ "r3:1", "esp:D5", "green", [ "v0" ] ],
+    [ "r2:1", "esp:D4", "green", [ "v0" ] ],
+    [ "r1:1", "esp:D2", "green", [ "v-1.05", "h-234.91", "v-49.97" ] ],
+    [ "ldr1:AO", "esp:D32", "green", [ "h21.6", "v60.94", "h-225.7", "v83.81" ] ],
+    [ "ldr1:DO", "esp:D15", "green", [ "h0.05", "v233.48" ] ],
+    [ "ldr1:GND", "esp:GND.1", "black", [ "h25.79", "v255.85" ] ],
+    [ "ldr1:VCC", "esp:3V3", "red", [ "h13.82", "v274.83" ] ]
+  ],
+  "dependencies": {}
+}
